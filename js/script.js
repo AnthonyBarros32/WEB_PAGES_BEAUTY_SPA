@@ -2,12 +2,13 @@ const servicios = {
   "Manicure": {
     descripcion: "Ofrecemos manicure tradicional, semipermanente, acrílico y press.",
     imagenes: ["images/manicure/manicure1.png", "images/manicure/manicure2.png"],
+    video: "manicure_video1.mp4",
     precios: [
       { tipo: "Tradicional manos", valor: "23.000" },
       { tipo: "Semipermanente manos", valor: "46.000" },
       { tipo: "Press on", valor: "80.000" },
       { tipo: "Acrílico Forrado", valor: "85.000" },
-      { tipo: "Acrílico Esculpidas", valor: "Desde 100.000" }
+      { tipo: "Acrílico Esculpidas Desde", valor: "100.000" }
     ]
   },
   "Pedicure": {
@@ -49,11 +50,21 @@ document.getElementById("categoria").addEventListener("change", function () {
   const contenedor = document.getElementById("contenido");
 
   if (servicios[categoria]) {
-    const { descripcion, imagenes, precios } = servicios[categoria]; // <-- aquí corregido
+    const { descripcion, imagenes, precios,video } = servicios[categoria]; // <-- aquí corregido
     let html = `<div class="servicio">
   <h3 class="titulo-servicio">${categoria.replace("-", " ")}</h3>
   <p class="descripcion-servicio">${descripcion}</p>
   <ul class="lista-precios">`;
+
+if (video) {
+  html += `
+    <div class="video-servicio">
+      <video controls width="50%" style="border-radius: 10px; margin: 15px auto; display: block;">
+        <source src="${video}" type="video/mp4">
+        Tu navegador no soporta la reproducción de video.
+      </video>
+    </div>`;
+}
 
 precios.forEach(p => {
   html += `<li class="precio-item"><span class="nombre">${p.tipo}:</span> <span class="valor">$${p.valor}</span></li>`;

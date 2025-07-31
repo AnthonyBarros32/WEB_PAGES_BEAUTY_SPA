@@ -96,3 +96,96 @@ select {
 .instagram-btn {
   background-color: #E1306C;
 }
+
+.lista-precios {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.lista-precios li {
+  font-size: 16px;
+  padding: 4px 0;
+  color: #444;
+}
+
+.titulo-servicio {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: #7a3e9d; /* un morado elegante */
+  margin-bottom: 10px;
+}
+
+.descripcion-servicio {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.lista-precios {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.precio-item {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  margin-bottom: 5px;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.precio-item .nombre {
+  color: #333;
+  font-weight: 500;
+}
+
+.precio-item .valor {
+  color: #9b59b6;
+  font-weight: bold;
+}
+.titulo-servicio {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: #7a3e9d; /* un morado elegante */
+  margin-bottom: 10px;
+}
+
+.descripcion-servicio {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.lista-precios {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.precio-item {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  margin-bottom: 5px;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.precio-item .nombre {
+  color: #333;
+  font-weight: 500;
+}
+
+.precio-item .valor {
+  color: #9b59b6;
+  font-weight: bold;
+}

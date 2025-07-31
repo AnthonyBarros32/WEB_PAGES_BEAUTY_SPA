@@ -1,0 +1,98 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f3fb;
+  color: #4a3c4d;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  background-color: #f4e1f8;
+  padding: 30px 10px 10px;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #a259c5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: -10px;
+}
+
+.butterfly {
+  width: 40px;
+  height: auto;
+}
+
+.selector-section {
+  padding: 20px;
+  text-align: center;
+}
+
+select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #a259c5;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #4a3c4d;
+}
+
+#contenido {
+  padding: 20px;
+  text-align: center;
+}
+
+.servicio {
+  margin-bottom: 30px;
+}
+
+.servicio h3 {
+  color: #a259c5;
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.galeria img {
+  width: 200px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.contact-info {
+  background-color: #f0d9f9;
+  padding: 30px;
+  text-align: center;
+}
+
+.buttons a {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.whatsapp-btn {
+  background-color: #25D366;
+}
+
+.instagram-btn {
+  background-color: #E1306C;
+}

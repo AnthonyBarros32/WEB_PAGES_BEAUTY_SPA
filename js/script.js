@@ -22,6 +22,7 @@ const servicios = {
   "Cejas-Pestañas": {
     descripcion: "Diseño de cejas, punto a punto y lifting.",
     imagenes: ["images/cejas-pestañas/pestanas1.png", "images/cejas-pestañas/pestanas2.png"],
+    video: "pestañas_video1.mp4",
     precios: [
       { tipo: "Diseño de cejas", valor: "20.000" },
       { tipo: "Lifting", valor: "50.000" }
@@ -37,7 +38,8 @@ const servicios = {
   },
   "Peinados": {
     descripcion: "Peinados para eventos, fiestas o uso diario.",
-    imagenes: ["images/maquillaje/maquillaje1.png", "images/maquillaje/maquillaje2.png"],
+    imagenes: ["images/peinado/peinado.png", "images/peinado/peinado2.png","images/peinado/peinado3.png"],
+    video: "peinado_video1.mp4",
     precios: [
       { tipo: "Ondas", valor: "30.000" },
       { tipo: "Recogido", valor: "50.000" }
@@ -59,7 +61,7 @@ document.getElementById("categoria").addEventListener("change", function () {
 if (video) {
   html += `
     <div class="video-servicio">
-      <video controls width="50%" style="border-radius: 10px; margin: 15px auto; display: block;">
+      <video controls width="500" height="300">
         <source src="${video}" type="video/mp4">
         Tu navegador no soporta la reproducción de video.
       </video>

@@ -61,7 +61,7 @@ document.getElementById("categoria").addEventListener("change", function () {
 if (video) {
   html += `
     <div class="video-servicio">
-      <video controls width="500" height="300">
+      <video controls style="max-width: 25%; width: 125px; height: auto;">
         <source src="${video}" type="video/mp4">
         Tu navegador no soporta la reproducción de video.
       </video>

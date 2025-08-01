@@ -191,7 +191,7 @@ select {
 
 .img-container {
   position: relative;
-  width: 45%;
+  width: 80%;
 }
 
 .img-container img {
@@ -210,11 +210,10 @@ select {
 
 .etiqueta {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: -28px;
   background-color: rgba(107, 43, 91, 0.8);
   color: white;
-  padding: 5px 12px;
+  padding: 3px 3px;
   font-family: 'Playfair Display', serif;
   font-size: 14px;
   border-radius: 20px;
@@ -259,7 +258,7 @@ select {
 }
 
 /* Responsive para móviles */
-@media (max-width: 600px) {
+@media (max-width: 300px) {
   .comparacion {
     flex-direction: column;
     gap: 10px;
@@ -267,7 +266,7 @@ select {
   }
 
   .img-container {
-    width: 100%;
+    width: 45%;
   }
 
   .etiqueta {

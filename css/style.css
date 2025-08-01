@@ -378,7 +378,7 @@ img, .etiqueta, .galeria img {
 }
 
 .comparacion img {
-width: 48%; /* casi la mitad del ancho del contenedor */
+  width: 4%; /* casi la mitad del ancho del contenedor */
   height: auto;
   border-radius: 10px;
   object-fit: cover;
@@ -408,13 +408,13 @@ width: 48%; /* casi la mitad del ancho del contenedor */
 }
 
 /* Media Query: Ajustes para pantallas pequeñas (móviles) */
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .comparacion {
     flex-direction: column; /* apilar verticalmente */
   }
 
   .comparacion img {
-    width: 45%;  /* imágenes más grandes para móvil */
+    width: 40%;  /* imágenes más grandes para móvil */
     margin-bottom: 10px;
   }
 

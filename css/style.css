@@ -292,50 +292,30 @@ img, .etiqueta, .galeria img {
 .tab-content.active {
   display: block;
 }
-
 @media (max-width: 600px) {
-/* Ajustes para galería de antes y después */
-.comparacion {
-  display: flex;
-  flex-direction: row; /* imágenes lado a lado */
-  align-items: center;
-  gap: 10px;
-  position: relative;
-}
+  .comparacion {
+    display: flex;
+    flex-direction: column; /* cambio para móvil: apilar imágenes verticalmente */
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
 
-.comparacion img {
-  width: 48%;  /* casi la mitad del contenedor */
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+  .comparacion img {
+    width: 90%;  /* hacer imágenes más grandes y adaptables */
+    margin-bottom: 10px;
+  }
 
-.comparacion .etiqueta {
-  position: absolute;
-  top: 10px;
-  background-color: rgba(107, 43, 91, 0.8); /* morado semitransparente */
-  color: white;
-  padding: 5px 12px;
-  font-family: 'Playfair Display', serif;
-  font-size: 14px;
-  border-radius: 20px;
-  font-weight: 600;
-  user-select: none;
+  .comparacion .etiqueta {
+    position: static; /* etiquetas en flujo normal, no absolutas */
+    margin-bottom: 5px;
+    text-align: center;
+    display: inline-block;
+  }
 }
-
-/* Etiqueta para la primera imagen */
-.comparacion img:first-of-type + .etiqueta {
-  left: 10px;
-}
-
-/* Etiqueta para la segunda imagen */
-.comparacion img:last-of-type + .etiqueta {
-  right: 10px;
-}
-
+/* Estilos generales fuera del media query */
 .titulo-transformacion {
-  background-color: #f9f4f0; /* fondo sutil y elegante */
+  background-color: #f9f4f0;
   padding: 40px 20px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -347,7 +327,7 @@ img, .etiqueta, .galeria img {
   font-family: 'Playfair Display', serif;
   font-size: 36px;
   margin-bottom: 10px;
-  color: #6b2b5b; /* color morado elegante */
+  color: #6b2b5b;
 }
 
 .titulo-transformacion p {
@@ -372,7 +352,7 @@ img, .etiqueta, .galeria img {
 }
 
 .imagen-comparacion img {
-  width: 80px;
+  width: 150px;
   height: auto;
   border-radius: 10px;
   margin-bottom: 5px;
@@ -380,10 +360,66 @@ img, .etiqueta, .galeria img {
 
 .etiqueta {
   font-family: 'Playfair Display', serif;
-  font-size: 16px;
+  font-size: 5px;
   color: #fff;
   background-color: #6b2b5b;
-  padding: 5px 10px;
-  border-radius: 20px;
+  padding: 5px 5px;
+  border-radius: 10px;
 }
+
+/* Estilos para el contenedor de las imágenes antes/después */
+.comparacion {
+  display: flex;
+  flex-direction: row; /* lado a lado en pantallas grandes */
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.comparacion img {
+  width: 48%; /* casi la mitad del contenedor */
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.comparacion .etiqueta {
+  position: absolute;
+  top: 10px;
+  background-color: rgba(107, 43, 91, 0.8);
+  color: white;
+  padding: 5px 12px;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  user-select: none;
+}
+
+.comparacion img:first-of-type + .etiqueta {
+  left: 10px;
+}
+
+.comparacion img:last-of-type + .etiqueta {
+  right: 10px;
+}
+
+/* Media Query: Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+  .comparacion {
+    flex-direction: column; /* apilar verticalmente */
+  }
+
+  .comparacion img {
+    width: 90%;  /* imágenes más grandes para móvil */
+    margin-bottom: 10px;
+  }
+
+  .comparacion .etiqueta {
+    position: static; /* quitar posición absoluta */
+    margin-bottom: 5px;
+    text-align: center;
+    display: inline-block;
+  }
 }

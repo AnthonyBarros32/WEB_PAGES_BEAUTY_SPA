@@ -339,56 +339,35 @@ img, .etiqueta, .galeria img {
 
 .galeria-antes-despues {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.imagen-comparacion {
-  position: relative;
+.comparacion {
   display: flex;
-  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
   align-items: center;
 }
 
-.imagen-comparacion img {
-  width: 150px;
-  height: auto;
+.img-container {
+  position: relative;
+  width: 45%;
+}
+
+.img-container img {
+  width: 100%;
   border-radius: 10px;
-  margin-bottom: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: block;
 }
 
 .etiqueta {
-  font-family: 'Playfair Display', serif;
-  font-size: 5px;
-  color: #fff;
-  background-color: #6b2b5b;
-  padding: 5px 5px;
-  border-radius: 10px;
-}
-
-/* Estilos para el contenedor de las imágenes antes/después */
-.comparacion {
- display: flex;
-  flex-direction: row; /* siempre lado a lado */
-  align-items: center;
-  gap: 10px;
-  position: relative;
-  flex-wrap: nowrap;
-}
-
-.comparacion img {
-  width: 45%; /* casi la mitad del ancho del contenedor */
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  max-width: 100%;
-}
-
-.comparacion .etiqueta {
   position: absolute;
   top: 10px;
+  left: 10px;
   background-color: rgba(107, 43, 91, 0.8);
   color: white;
   padding: 5px 12px;
@@ -399,29 +378,19 @@ img, .etiqueta, .galeria img {
   user-select: none;
 }
 
-.comparacion img:first-of-type + .etiqueta {
-  left: 10px;
-}
-
-.comparacion img:last-of-type + .etiqueta {
-  right: 10px;
-}
-
-/* Media Query: Ajustes para pantallas pequeñas (móviles) */
-@media (max-width: 480px) {
+/* Responsive para móviles */
+@media (max-width: 600px) {
   .comparacion {
-    flex-direction: column; /* apilar verticalmente */
+    flex-direction: column;
   }
 
-  .comparacion img {
-    width: 30%;  /* imágenes más grandes para móvil */
-    margin-bottom: 10px;
+  .img-container {
+    width: 100%;
   }
 
-  .comparacion .etiqueta {
-    position: static; /* quitar posición absoluta */
-    margin-bottom: 5px;
-    text-align: center;
+  .etiqueta {
+    position: static;
+    margin-top: 6px;
     display: inline-block;
   }
 }

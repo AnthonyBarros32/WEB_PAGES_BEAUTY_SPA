@@ -71,6 +71,12 @@ select {
   width: 200px;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
 .contact-info {
@@ -100,73 +106,6 @@ select {
 .lista-precios {
   list-style: none;
   padding: 0;
-  margin: 10px 0;
-}
-
-.lista-precios li {
-  font-size: 16px;
-  padding: 4px 0;
-  color: #444;
-}
-
-.titulo-servicio {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  font-weight: bold;
-  color: #7a3e9d; /* un morado elegante */
-  margin-bottom: 10px;
-}
-
-.descripcion-servicio {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-  color: #444;
-  margin-bottom: 15px;
-}
-
-.lista-precios {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 20px;
-}
-
-.precio-item {
-  display: flex;
-  justify-content: space-between;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  margin-bottom: 5px;
-  padding: 8px;
-  border-bottom: 1px solid #eee;
-}
-
-.precio-item .nombre {
-  color: #333;
-  font-weight: 500;
-}
-
-.precio-item .valor {
-  color: #9b59b6;
-  font-weight: bold;
-}
-.titulo-servicio {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  font-weight: bold;
-  color: #7a3e9d; /* un morado elegante */
-  margin-bottom: 10px;
-}
-
-.descripcion-servicio {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-  color: #444;
-  margin-bottom: 15px;
-}
-
-.lista-precios {
-  list-style: none;
-  padding: 0;
   margin-bottom: 20px;
 }
 
@@ -190,130 +129,28 @@ select {
   font-weight: bold;
 }
 
+.titulo-servicio {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: #7a3e9d; /* morado elegante */
+  margin-bottom: 10px;
+}
+
+.descripcion-servicio {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+/* Antes y Después */
 .antes-despues {
   padding: 40px 20px;
   text-align: center;
   background-color: #fdf6f9;
 }
 
-.seccion-antes-despues h2,
-.seccion-antes-despues p {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: #d45da7;
-}
-
-.antes-despues p {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-}
-
-.galeria-comparacion {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
-.comparacion {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-  position: relative;
-}
-
-.comparacion img {
-  width: 200px;
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.etiqueta {
-  position: absolute;
-  top: 5px;
-  background-color: rgba(0,0,0,0.6);
-  color: white;
-  padding: 3px 5px;
-  font-size: 0.8rem;
-  border-radius: 2px;
-}
-
-.comparacion img:first-of-type + .etiqueta {
-  left: 15px;
-}
-
-.comparacion img:last-of-type + .etiqueta {
-  right: 15px;
-}
-
-img, .etiqueta, .galeria img {
-  transition: all 0.3s ease;
-}
-
-.galeria img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-}
-.tabs {
-  display: flex;
-  background-color: #f2f2f2;
-  border-bottom: 1px solid #ccc;
-}
-
-.tab {
-  padding: 14px 20px;
-  cursor: pointer;
-  background-color: #eee;
-  border: none;
-  outline: none;
-  transition: background 0.3s;
-  font-weight: bold;
-}
-
-.tab:hover {
-  background-color: #ddd;
-}
-
-.tab.active {
-  background-color: #fff;
-  border-bottom: 2px solid #a259c5;
-  color: #a259c5;
-}
-
-.tab-content {
-  display: none;
-  padding: 20px;
-}
-
-.tab-content.active {
-  display: block;
-}
-@media (max-width: 600px) {
-  .comparacion {
-    display: flex;
-    flex-direction: column; /* cambio para móvil: apilar imágenes verticalmente */
-    align-items: center;
-    gap: 10px;
-    position: relative;
-  }
-
-  .comparacion img {
-    width: 90%;  /* hacer imágenes más grandes y adaptables */
-    margin-bottom: 10px;
-  }
-
-  .comparacion .etiqueta {
-    position: static; /* etiquetas en flujo normal, no absolutas */
-    margin-bottom: 5px;
-    text-align: center;
-    display: inline-block;
-  }
-}
-/* Estilos generales fuera del media query */
 .titulo-transformacion {
   background-color: #f9f4f0;
   padding: 40px 20px;
@@ -362,6 +199,13 @@ img, .etiqueta, .galeria img {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   display: block;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.img-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
 .etiqueta {
@@ -378,10 +222,48 @@ img, .etiqueta, .galeria img {
   user-select: none;
 }
 
+/* Tabs */
+.tabs {
+  display: flex;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ccc;
+}
+
+.tab {
+  padding: 14px 20px;
+  cursor: pointer;
+  background-color: #eee;
+  border: none;
+  outline: none;
+  transition: background 0.3s;
+  font-weight: bold;
+}
+
+.tab:hover {
+  background-color: #ddd;
+}
+
+.tab.active {
+  background-color: #fff;
+  border-bottom: 2px solid #a259c5;
+  color: #a259c5;
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
 /* Responsive para móviles */
 @media (max-width: 600px) {
   .comparacion {
     flex-direction: column;
+    gap: 10px;
+    align-items: center;
   }
 
   .img-container {

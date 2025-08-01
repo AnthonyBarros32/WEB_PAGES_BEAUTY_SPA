@@ -52,35 +52,46 @@ document.getElementById("categoria").addEventListener("change", function () {
   const contenedor = document.getElementById("contenido");
 
   if (servicios[categoria]) {
-    const { descripcion, imagenes, precios,video } = servicios[categoria]; // <-- aquí corregido
+    const { descripcion, imagenes, precios, video } = servicios[categoria];
     let html = `<div class="servicio">
-  <h3 class="titulo-servicio">${categoria.replace("-", " ")}</h3>
-  <p class="descripcion-servicio">${descripcion}</p>
-  <ul class="lista-precios">`;
+      <h3 class="titulo-servicio">${categoria.replace("-", " ")}</h3>
+      <p class="descripcion-servicio">${descripcion}</p>
+      <ul class="lista-precios">`;
 
-if (video) {
-  html += `
-    <div class="video-servicio">
-      <video controls style="max-width: 25%; width: 125px; height: auto;">
-        <source src="${video}" type="video/mp4">
-        Tu navegador no soporta la reproducción de video.
-      </video>
-    </div>`;
-}
+    if (video) {
+      html += `
+        <div class="video-servicio">
+          <video controls style="max-width: 40%; width: 150px; height: auto;">
+            <source src="${video}" type="video/mp4">
+            Tu navegador no soporta la reproducción de video.
+          </video>
+        </div>`;
+    }
 
-precios.forEach(p => {
-  html += `<li class="precio-item"><span class="nombre">${p.tipo}:</span> <span class="valor">$${p.valor}</span></li>`;
-});
+    precios.forEach(p => {
+      html += `<li class="precio-item"><span class="nombre">${p.tipo}:</span> <span class="valor">$${p.valor}</span></li>`;
+    });
 
-html += `</ul><div class="galeria">`;
-imagenes.forEach(img => {
-  html += `<img src="${img}" alt="${categoria}">`;
-});
-html += `</div></div>`;
-
+    html += `</ul><div class="galeria">`;
+    imagenes.forEach(img => {
+      html += `<img src="${img}" alt="${categoria}">`;
+    });
+    html += `</div></div>`;
 
     contenedor.innerHTML = html;
   } else {
     contenedor.innerHTML = "";
   }
 });
+
+// Script para cambiar pestañas
+function openTab(evt, tabId) {
+  const tabs = document.querySelectorAll('.tab');
+  const contents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => tab.classList.remove('active'));
+  contents.forEach(content => content.classList.remove('active'));
+
+  document.getElementById(tabId).classList.add('active');
+  evt.currentTarget.classList.add('active');
+}

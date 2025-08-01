@@ -293,10 +293,45 @@ img, .etiqueta, .galeria img {
   display: block;
 }
 
+@media (max-width: 600px) {
 /* Ajustes para galería de antes y después */
+.comparacion {
+  display: flex;
+  flex-direction: row; /* imágenes lado a lado */
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
 .comparacion img {
-  width: 140px;
+  width: 48%;  /* casi la mitad del contenedor */
   height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.comparacion .etiqueta {
+  position: absolute;
+  top: 10px;
+  background-color: rgba(107, 43, 91, 0.8); /* morado semitransparente */
+  color: white;
+  padding: 5px 12px;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  user-select: none;
+}
+
+/* Etiqueta para la primera imagen */
+.comparacion img:first-of-type + .etiqueta {
+  left: 10px;
+}
+
+/* Etiqueta para la segunda imagen */
+.comparacion img:last-of-type + .etiqueta {
+  right: 10px;
 }
 
 .titulo-transformacion {
@@ -350,4 +385,5 @@ img, .etiqueta, .galeria img {
   background-color: #6b2b5b;
   padding: 5px 10px;
   border-radius: 20px;
+}
 }

@@ -141,3 +141,8 @@ function openTab(evt, tabId) {
     });
   }
 }
+
+function cerrarPopup() {
+  const popup = document.getElementById("welcome-popup");
+  popup.classList.add("hidden");
+}

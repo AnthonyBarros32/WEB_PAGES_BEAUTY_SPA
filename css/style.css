@@ -311,27 +311,17 @@ select {
 }
 
 #welcome-popup {
-  position: fixed;
+   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: #f9f3fb;
-  color: #4a3c4d;
+  height: 100vh;
+  background: linear-gradient(135deg, #d7aef3, #e6ccf7);
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 10000;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-.popup-content {
-  text-align: center;
-  padding: 40px;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-  animation: fadeInScale 0.8s ease;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
 }
 
 .popup-content h2 {
@@ -358,6 +348,80 @@ select {
 
 .popup-content button:hover {
   background-color: #8b45a1;
+}
+.popup-stars-overlay {
+   position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.star {
+position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.6;
+  box-shadow: 0 0 6px white;
+  animation: blink 2.5s infinite ease-in-out;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+
+/* Caja blanca con sombra difusa, bordes redondeados y blur suave */
+.popup-content {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow:
+    0 10px 25px rgba(143, 64, 200, 0.3),
+    0 0 60px rgba(143, 64, 200, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-align: center;
+  max-width: 400px;
+  font-family: 'Montserrat', sans-serif;
+  color: #4a3c4d;
+}
+
+/* Título con fuente cursiva y elegante */
+.popup-content h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* Texto de la frase */
+.popup-content p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  font-style: italic;
+  color: #5b3d7d;
+}
+
+/* Botón morado redondeado */
+.popup-content button {
+  background-color: #a259c5;
+  color: white;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(162, 89, 197, 0.5);
+}
+
+.popup-content button:hover {
+  background-color: #7a3e9d;
 }
 
 @keyframes fadeInScale {

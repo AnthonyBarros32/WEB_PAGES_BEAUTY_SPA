@@ -78,7 +78,16 @@ document.getElementById("categoria").addEventListener("change", function () {
     });
     html += `</div></div>`;
 
+    // Inserta HTML en el contenedor
     contenedor.innerHTML = html;
+
+    // Espera un pequeño tiempo para que el DOM lo cargue, y luego añade la clase .show
+    setTimeout(() => {
+      const nuevoServicio = contenedor.querySelector('.servicio');
+      if (nuevoServicio) {
+        nuevoServicio.classList.add('show');
+      }
+    }, 50); // 50 ms es suficiente para que el DOM procese el nuevo nodo
   } else {
     contenedor.innerHTML = "";
   }
@@ -94,4 +103,41 @@ function openTab(evt, tabId) {
 
   document.getElementById(tabId).classList.add('active');
   evt.currentTarget.classList.add('active');
+}
+
+contents.forEach(content => {
+  content.style.display = 'none';
+  content.classList.remove('active');
+});
+
+const activeContent = document.getElementById(tabId);
+activeContent.style.display = 'block';
+setTimeout(() => activeContent.classList.add('active'), 10);
+
+function openTab(evt, tabId) {
+  const tabs = document.querySelectorAll('.tab');
+  const contents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => tab.classList.remove('active'));
+  contents.forEach(content => {
+    content.classList.remove('active');
+    content.style.display = 'none';
+  });
+
+  const activeContent = document.getElementById(tabId);
+  activeContent.style.display = 'block';
+  setTimeout(() => activeContent.classList.add('active'), 10);
+
+  evt.currentTarget.classList.add('active');
+
+  // Si la pestaña activa es "antes-despues" animamos las imágenes
+  if (tabId === 'antes-despues') {
+    const imgs = activeContent.querySelectorAll('.galeria-antes-despues img');
+    imgs.forEach((img, index) => {
+      img.classList.remove('show'); // reset en caso de volver a abrir la pestaña
+      setTimeout(() => {
+        img.classList.add('show');
+      }, index * 150); // delay en cascada: 150ms entre cada imagen
+    });
+  }
 }

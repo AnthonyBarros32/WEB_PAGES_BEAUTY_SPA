@@ -440,3 +440,67 @@ position: absolute;
   visibility: hidden;
   pointer-events: none;
 }
+.logo-brillante {
+  position: relative;
+  z-index: 1;
+  animation: girar 6s linear infinite;
+  transform-style: preserve-3d;
+}
+
+/* Efecto de destello */
+.logo-brillante::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  transform: skewX(-20deg);
+  animation: brillo 2.5s infinite;
+  z-index: 2;
+}
+
+/* Animación de giro tipo moneda */
+@keyframes girar {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+/* Animación del brillo */
+@keyframes brillo {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+
+.carrusel {
+  position: relative;
+  width: 100%;
+  max-width:  100%;
+  overflow: hidden;
+  border-radius: 15px;
+  margin: 50;
+}
+
+.carrusel-track {
+ display: flex;
+  align-items: center;
+  gap: 20px; /* separa las imágenes */
+  animation: deslizar 12s linear infinite;
+}
+
+.carrusel img {
+width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 300px; /* puedes ajustar este valor */
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+/* Animación automática de deslizamiento */
+@keyframes deslizar {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}

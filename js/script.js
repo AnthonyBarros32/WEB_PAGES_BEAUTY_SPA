@@ -1,7 +1,7 @@
 const servicios = {
   "Manicure": {
     descripcion: "Ofrecemos manicure tradicional, semipermanente, acrílico y press.",
-    imagenes: ["images/manicure/manicure1.png", "images/manicure/manicure2.png"],
+    imagenes: ["images/manicure/manicure1.png", "images/manicure/manicure2.png","images/manicure/manicure3.png","images/manicure/manicure4.png","images/manicure/manicure5.jpg","images/manicure/manicure6.jpg"],
     video: "manicure_video1.mp4",
     precios: [
       { tipo: "Tradicional manos", valor: "23.000" },
@@ -21,7 +21,7 @@ const servicios = {
   },
   "Cejas-Pestañas": {
     descripcion: "Diseño de cejas, punto a punto y lifting.",
-    imagenes: ["images/cejas-pestañas/pestanas1.png", "images/cejas-pestañas/pestanas2.png"],
+    imagenes: ["images/cejas-pestañas/pestanas1.png", "images/cejas-pestañas/pestanas2.png","images/cejas-pestañas/pestanas3.png","images/cejas-pestañas/pestanas5.png","images/cejas-pestañas/pestanas6.png","images/cejas-pestañas/pestanas7.png","images/cejas-pestañas/pestanas8.png"],
     video: "pestañas_video1.mp4",
     precios: [
       { tipo: "Diseño de cejas", valor: "20.000" },
@@ -30,7 +30,7 @@ const servicios = {
   },
   "Maquillaje": {
     descripcion: "Maquillaje profesional para eventos y sesiones.",
-    imagenes: ["images/maquillaje/maquillaje1.png", "images/maquillaje/maquillaje2.png"],
+    imagenes: ["images/maquillaje/maquillaje1.png","images/maquillaje/maquillaje2.png","images/maquillaje/maquillaje3.png"],
     precios: [
       { tipo: "Social", valor: "80.000" },
       { tipo: "Matrimonio", valor: "120.000" }
@@ -72,11 +72,14 @@ document.getElementById("categoria").addEventListener("change", function () {
       html += `<li class="precio-item"><span class="nombre">${p.tipo}:</span> <span class="valor">$${p.valor}</span></li>`;
     });
 
-    html += `</ul><div class="galeria">`;
-    imagenes.forEach(img => {
-      html += `<img src="${img}" alt="${categoria}">`;
-    });
-    html += `</div></div>`;
+html += `
+  <div class="carrusel">
+    <div class="carrusel-track">
+      ${imagenes.concat(imagenes).map(img => `<img src="${img}" alt="${categoria}">`).join("")}
+    </div>
+  </div>
+</div>`;
+
 
     // Inserta HTML en el contenedor
     contenedor.innerHTML = html;

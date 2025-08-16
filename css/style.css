@@ -33,6 +33,12 @@ h1 {
   height: auto;
 }
 
+.logo-letra {
+  width: 200px;
+  height: auto;
+  animation: flutter 4s ease-in-out infinite;
+}
+
 .selector-section {
   padding: 20px;
   text-align: center;

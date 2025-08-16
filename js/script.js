@@ -25,7 +25,8 @@ const servicios = {
     video: "pestañas_video1.mp4",
     precios: [
       { tipo: "Diseño de cejas", valor: "20.000" },
-      { tipo: "Lifting", valor: "50.000" }
+      { tipo: "Lifting", valor: "27.000" },
+       { tipo: "Pestañas por punto", valor: "20.000 - 27.000" }
     ]
   },
   "Maquillaje": {
@@ -38,7 +39,7 @@ const servicios = {
   },
   "Peinados": {
     descripcion: "Peinados para eventos, fiestas o uso diario.",
-    imagenes: ["images/peinado/peinado.png", "images/peinado/peinado2.png","images/peinado/peinado3.png"],
+    imagenes: ["images/peinado/peinado.png", "images/peinado/peinado2.png","images/peinado/peinado3.png","images/peinado/peinado1.jpg","images/peinado/peinad4.jpg"],
     video: "peinado_video1.mp4",
     precios: [
       { tipo: "Ondas", valor: "30.000" },

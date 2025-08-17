@@ -37,6 +37,12 @@ h1 {
   width: 200px;
   height: auto;
   animation: flutter 4s ease-in-out infinite;
+  /* borde/resplandor */
+   filter: drop-shadow(0 0 0 #bb6bbb) /* sin blur */
+          drop-shadow(1px 1px 0 #bb6bbb)
+          drop-shadow(-1px -1px 0 #bb6bbb)
+          drop-shadow(1px -1px 0 #bb6bbb)
+          drop-shadow(-1px 1px 0 #bb6bbb);
 }
 
 .selector-section {

@@ -2,29 +2,40 @@
 // Datos de servicios
 // ============================
 const servicios = {
-  "Manicure": {
-    descripcion: "Ofrecemos manicure tradicional, semipermanente, acrílico y press.",
-    imagenes: ["images/manicure/manicure1.png","images/manicure/manicure2.png","images/manicure/manicure3.png","images/manicure/manicure4.png","images/manicure/manicure5.jpg","images/manicure/manicure6.jpg"],
+  "Manicure y Pedicure": {
+    descripcion: "Ofrecemos servicios de manicure y pedicure",
+    imagenes: [
+      "images/manicure/manicure1.png",
+      "images/manicure/manicure2.png",
+      "images/manicure/manicure3.png",
+      "images/manicure/manicure4.png",
+      "images/manicure/manicure5.jpg",
+      "images/manicure/manicure6.jpg",
+      "images/pedicure/pedicure1.jpg",
+      "images/pedicure/pedicure2.jpg"
+    ],
     video: "manicure_video1.mp4",
     precios: [
       { tipo: "Tradicional manos", valor: "23.000" },
       { tipo: "Semipermanente manos", valor: "46.000" },
       { tipo: "Press on", valor: "80.000" },
       { tipo: "Acrílico Forrado", valor: "85.000" },
-      { tipo: "Acrílico Esculpidas Desde", valor: "100.000" }
+      { tipo: "Acrílico Esculpidas Desde", valor: "100.000" },
+      { tipo: "Tradicional pies", valor: "30.000" },
+      { tipo: "Semipermanente pies", valor: "43.000" }
     ]
   },
-  "Pedicure": {
-    descripcion: "Pedicure con cuidado profesional y relajación.",
-    imagenes: ["images/pedicure/1.jpg", "images/pedicure/2.jpg"],
-    precios: [
-      { tipo: "Tradicional", valor: "30.000" },
-      { tipo: "Semipermanente", valor: "43.000" }
-    ]
-  },
-  "Cejas-Pestañas": {
-    descripcion: "Diseño de cejas, punto a punto y lifting.",
-    imagenes: ["images/cejas-pestañas/pestanas1.png","images/cejas-pestañas/pestanas2.png","images/cejas-pestañas/pestanas3.png","images/cejas-pestañas/pestanas5.png","images/cejas-pestañas/pestanas6.png","images/cejas-pestañas/pestanas7.png","images/cejas-pestañas/pestanas8.png"],
+  "Cejas y Pestañas": {
+    descripcion: "Diseño de cejas y pestañas servicios",
+    imagenes: [
+      "images/cejas-pestañas/pestanas1.png",
+      "images/cejas-pestañas/pestanas2.png",
+      "images/cejas-pestañas/pestanas3.png",
+      "images/cejas-pestañas/pestanas5.png",
+      "images/cejas-pestañas/pestanas6.png",
+      "images/cejas-pestañas/pestanas7.png",
+      "images/cejas-pestañas/pestanas8.png",
+    ],
     video: "pestañas_video1.mp4",
     precios: [
       { tipo: "Diseño de cejas", valor: "20.000" },
@@ -36,7 +47,11 @@ const servicios = {
   },
   "Maquillaje": {
     descripcion: "Maquillaje profesional para eventos y sesiones.",
-    imagenes: ["images/maquillaje/maquillaje1.png","images/maquillaje/maquillaje2.png","images/maquillaje/maquillaje3.png"],
+    imagenes: [
+      "images/maquillaje/maquillaje1.png",
+      "images/maquillaje/maquillaje2.png",
+      "images/maquillaje/maquillaje3.png"
+    ],
     precios: [
       { tipo: "Social", valor: "80.000" },
       { tipo: "Matrimonio", valor: "120.000" }
@@ -44,7 +59,13 @@ const servicios = {
   },
   "Peinados": {
     descripcion: "Peinados para eventos, fiestas o uso diario.",
-    imagenes: ["images/peinado/peinado.png","images/peinado/peinado2.png","images/peinado/peinado3.png","images/peinado/peinado1.jpg","images/peinado/peinad4.jpg"],
+    imagenes: [
+      "images/peinado/peinado.png",
+      "images/peinado/peinado2.png",
+      "images/peinado/peinado3.png",
+      "images/peinado/peinado1.jpg",
+      "images/peinado/peinad4.jpg"
+    ],
     video: "peinado_video1.mp4",
     precios: [
       { tipo: "Ondas", valor: "30.000" },
@@ -54,53 +75,135 @@ const servicios = {
 };
 
 // ============================
+// Función para crear carrusel continuo
+// ============================
+function crearCarruselContinuo(imagenes, contenedorSelector, velocidad = 1) {
+  const contenedor = document.querySelector(contenedorSelector);
+
+  // Crear carrusel
+  const carrusel = document.createElement('div');
+  carrusel.className = 'carrusel';
+
+  const track = document.createElement('div');
+  track.className = 'carrusel-track';
+
+  // Duplicar imágenes para efecto continuo
+  const todasImagenes = [...imagenes, ...imagenes];
+  todasImagenes.forEach(src => {
+    const img = document.createElement('img');
+    img.src = src;
+    track.appendChild(img);
+  });
+
+  carrusel.appendChild(track);
+  contenedor.appendChild(carrusel);
+
+  let posicion = 0;
+
+  function animar() {
+    posicion -= velocidad;
+    if (Math.abs(posicion) >= track.scrollWidth / 2) {
+      posicion = 0;
+    }
+    track.style.transform = `translateX(${posicion}px)`;
+    requestAnimationFrame(animar);
+  }
+
+  animar();
+}// ============================
+// Función para crear carrusel continuo
+// ============================
+function crearCarruselContinuo(imagenes, contenedorSelector, velocidad = 1) {
+  const contenedor = document.querySelector(contenedorSelector);
+
+  // Crear carrusel
+  const carrusel = document.createElement('div');
+  carrusel.className = 'carrusel';
+
+  const track = document.createElement('div');
+  track.className = 'carrusel-track';
+
+  // Duplicar imágenes para efecto continuo
+  const todasImagenes = [...imagenes, ...imagenes];
+  todasImagenes.forEach(src => {
+    const img = document.createElement('img');
+    img.src = src;
+    track.appendChild(img);
+  });
+
+  carrusel.appendChild(track);
+  contenedor.appendChild(carrusel);
+
+  let posicion = 0;
+
+  function animar() {
+    posicion -= velocidad;
+    if (Math.abs(posicion) >= track.scrollWidth / 2) {
+      posicion = 0;
+    }
+    track.style.transform = `translateX(${posicion}px)`;
+    requestAnimationFrame(animar);
+  }
+
+  animar();
+}
+
+// ============================
 // Mostrar contenido de servicios
 // ============================
 document.getElementById("categoria").addEventListener("change", function () {
   const categoria = this.value;
   const contenedor = document.getElementById("contenido");
 
+  contenedor.innerHTML = ""; // limpiar contenido previo
+
   if (servicios[categoria]) {
     const { descripcion, imagenes, precios, video } = servicios[categoria];
 
-    let html = `<div class="servicio">
-      <h3 class="titulo-servicio">${categoria.replace("-", " ")}</h3>
-      <p class="descripcion-servicio">${descripcion}</p>`;
+    // Crear bloque de servicio
+    const servicioDiv = document.createElement('div');
+    servicioDiv.className = 'servicio';
 
-    // Video si existe, con clase para control responsive
+    const titulo = document.createElement('h3');
+    titulo.className = 'titulo-servicio';
+    titulo.textContent = categoria.replace("-", " ");
+    servicioDiv.appendChild(titulo);
+
+    const desc = document.createElement('p');
+    desc.className = 'descripcion-servicio';
+    desc.textContent = descripcion;
+    servicioDiv.appendChild(desc);
+
+    // Video si existe
     if (video) {
-      html += `<div class="video-servicio">
-        <video class="video-responsive" controls>
+      const videoDiv = document.createElement('div');
+      videoDiv.className = 'video-servicio';
+      videoDiv.innerHTML = `
+        <video controls>
           <source src="${video}" type="video/mp4">
           Tu navegador no soporta la reproducción de video.
-        </video>
-      </div>`;
+        </video>`;
+      servicioDiv.appendChild(videoDiv);
     }
 
     // Lista de precios
-    html += `<ul class="lista-precios">`;
+    const ul = document.createElement('ul');
+    ul.className = 'lista-precios';
     precios.forEach(p => {
-      html += `<li class="precio-item"><span class="nombre">${p.tipo}:</span> <span class="valor">$${p.valor}</span></li>`;
+      const li = document.createElement('li');
+      li.className = 'precio-item';
+      li.innerHTML = `<span class="nombre">${p.tipo}:</span> <span class="valor">$${p.valor}</span>`;
+      ul.appendChild(li);
     });
-    html += `</ul>`;
+    servicioDiv.appendChild(ul);
 
-    // Carrusel de imágenes
-    html += `<div class="carrusel">
-      <div class="carrusel-track">
-        ${imagenes.concat(imagenes).map(img => `<img src="${img}" alt="${categoria}">`).join("")}
-      </div>
-    </div>
-    </div>`;
+    contenedor.appendChild(servicioDiv);
 
-    contenedor.innerHTML = html;
+    // Crear carrusel con imágenes
+    crearCarruselContinuo(imagenes, '#contenido', 1);
 
     // Animación fade-in
-    setTimeout(() => {
-      const nuevoServicio = contenedor.querySelector('.servicio');
-      if (nuevoServicio) nuevoServicio.classList.add('show');
-    }, 50);
-  } else {
-    contenedor.innerHTML = "";
+    setTimeout(() => servicioDiv.classList.add('show'), 50);
   }
 });
 
@@ -141,9 +244,6 @@ function cerrarPopup() {
   popup.classList.add("hidden");
 }
 
-// ============================
-// Cerrar popup con click fuera o ESC
-// ============================
 document.addEventListener("click", (e) => {
   const popup = document.getElementById("welcome-popup");
   if (popup && !popup.contains(e.target) && !popup.classList.contains("hidden")) {

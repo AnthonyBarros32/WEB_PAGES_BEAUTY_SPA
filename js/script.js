@@ -1,7 +1,10 @@
+// ============================
+// Datos de servicios
+// ============================
 const servicios = {
   "Manicure": {
     descripcion: "Ofrecemos manicure tradicional, semipermanente, acrílico y press.",
-    imagenes: ["images/manicure/manicure1.png", "images/manicure/manicure2.png","images/manicure/manicure3.png","images/manicure/manicure4.png","images/manicure/manicure5.jpg","images/manicure/manicure6.jpg"],
+    imagenes: ["images/manicure/manicure1.png","images/manicure/manicure2.png","images/manicure/manicure3.png","images/manicure/manicure4.png","images/manicure/manicure5.jpg","images/manicure/manicure6.jpg"],
     video: "manicure_video1.mp4",
     precios: [
       { tipo: "Tradicional manos", valor: "23.000" },
@@ -21,12 +24,14 @@ const servicios = {
   },
   "Cejas-Pestañas": {
     descripcion: "Diseño de cejas, punto a punto y lifting.",
-    imagenes: ["images/cejas-pestañas/pestanas1.png", "images/cejas-pestañas/pestanas2.png","images/cejas-pestañas/pestanas3.png","images/cejas-pestañas/pestanas5.png","images/cejas-pestañas/pestanas6.png","images/cejas-pestañas/pestanas7.png","images/cejas-pestañas/pestanas8.png"],
+    imagenes: ["images/cejas-pestañas/pestanas1.png","images/cejas-pestañas/pestanas2.png","images/cejas-pestañas/pestanas3.png","images/cejas-pestañas/pestanas5.png","images/cejas-pestañas/pestanas6.png","images/cejas-pestañas/pestanas7.png","images/cejas-pestañas/pestanas8.png"],
     video: "pestañas_video1.mp4",
     precios: [
       { tipo: "Diseño de cejas", valor: "20.000" },
-      { tipo: "Lifting", valor: "27.000" },
-       { tipo: "Pestañas por punto", valor: "20.000 - 27.000" }
+      { tipo: "Diseño de cejas con cera", valor: "27.000" },
+      { tipo: "Lifting", valor: "60.000" },
+      { tipo: "Pestañas por punto", valor: "40.000 - 45.000" },
+      { tipo: "Laminado de Cejas", valor: "40.000" }
     ]
   },
   "Maquillaje": {
@@ -39,7 +44,7 @@ const servicios = {
   },
   "Peinados": {
     descripcion: "Peinados para eventos, fiestas o uso diario.",
-    imagenes: ["images/peinado/peinado.png", "images/peinado/peinado2.png","images/peinado/peinado3.png","images/peinado/peinado1.jpg","images/peinado/peinad4.jpg"],
+    imagenes: ["images/peinado/peinado.png","images/peinado/peinado2.png","images/peinado/peinado3.png","images/peinado/peinado1.jpg","images/peinado/peinad4.jpg"],
     video: "peinado_video1.mp4",
     precios: [
       { tipo: "Ondas", valor: "30.000" },
@@ -48,76 +53,60 @@ const servicios = {
   }
 };
 
+// ============================
+// Mostrar contenido de servicios
+// ============================
 document.getElementById("categoria").addEventListener("change", function () {
   const categoria = this.value;
   const contenedor = document.getElementById("contenido");
 
   if (servicios[categoria]) {
     const { descripcion, imagenes, precios, video } = servicios[categoria];
+
     let html = `<div class="servicio">
       <h3 class="titulo-servicio">${categoria.replace("-", " ")}</h3>
-      <p class="descripcion-servicio">${descripcion}</p>
-      <ul class="lista-precios">`;
+      <p class="descripcion-servicio">${descripcion}</p>`;
 
+    // Video si existe, con clase para control responsive
     if (video) {
-      html += `
-        <div class="video-servicio">
-          <video controls style="max-width: 40%; width: 150px; height: auto;">
-            <source src="${video}" type="video/mp4">
-            Tu navegador no soporta la reproducción de video.
-          </video>
-        </div>`;
+      html += `<div class="video-servicio">
+        <video class="video-responsive" controls>
+          <source src="${video}" type="video/mp4">
+          Tu navegador no soporta la reproducción de video.
+        </video>
+      </div>`;
     }
 
+    // Lista de precios
+    html += `<ul class="lista-precios">`;
     precios.forEach(p => {
       html += `<li class="precio-item"><span class="nombre">${p.tipo}:</span> <span class="valor">$${p.valor}</span></li>`;
     });
+    html += `</ul>`;
 
-html += `
-  <div class="carrusel">
-    <div class="carrusel-track">
-      ${imagenes.concat(imagenes).map(img => `<img src="${img}" alt="${categoria}">`).join("")}
+    // Carrusel de imágenes
+    html += `<div class="carrusel">
+      <div class="carrusel-track">
+        ${imagenes.concat(imagenes).map(img => `<img src="${img}" alt="${categoria}">`).join("")}
+      </div>
     </div>
-  </div>
-</div>`;
+    </div>`;
 
-
-    // Inserta HTML en el contenedor
     contenedor.innerHTML = html;
 
-    // Espera un pequeño tiempo para que el DOM lo cargue, y luego añade la clase .show
+    // Animación fade-in
     setTimeout(() => {
       const nuevoServicio = contenedor.querySelector('.servicio');
-      if (nuevoServicio) {
-        nuevoServicio.classList.add('show');
-      }
-    }, 50); // 50 ms es suficiente para que el DOM procese el nuevo nodo
+      if (nuevoServicio) nuevoServicio.classList.add('show');
+    }, 50);
   } else {
     contenedor.innerHTML = "";
   }
 });
 
-// Script para cambiar pestañas
-function openTab(evt, tabId) {
-  const tabs = document.querySelectorAll('.tab');
-  const contents = document.querySelectorAll('.tab-content');
-
-  tabs.forEach(tab => tab.classList.remove('active'));
-  contents.forEach(content => content.classList.remove('active'));
-
-  document.getElementById(tabId).classList.add('active');
-  evt.currentTarget.classList.add('active');
-}
-
-contents.forEach(content => {
-  content.style.display = 'none';
-  content.classList.remove('active');
-});
-
-const activeContent = document.getElementById(tabId);
-activeContent.style.display = 'block';
-setTimeout(() => activeContent.classList.add('active'), 10);
-
+// ============================
+// Pestañas
+// ============================
 function openTab(evt, tabId) {
   const tabs = document.querySelectorAll('.tab');
   const contents = document.querySelectorAll('.tab-content');
@@ -134,19 +123,34 @@ function openTab(evt, tabId) {
 
   evt.currentTarget.classList.add('active');
 
-  // Si la pestaña activa es "antes-despues" animamos las imágenes
+  // Animar galería Antes/Después
   if (tabId === 'antes-despues') {
     const imgs = activeContent.querySelectorAll('.galeria-antes-despues img');
     imgs.forEach((img, index) => {
-      img.classList.remove('show'); // reset en caso de volver a abrir la pestaña
-      setTimeout(() => {
-        img.classList.add('show');
-      }, index * 150); // delay en cascada: 150ms entre cada imagen
+      img.classList.remove('show');
+      setTimeout(() => img.classList.add('show'), index * 150);
     });
   }
 }
 
+// ============================
+// Popup de bienvenida
+// ============================
 function cerrarPopup() {
   const popup = document.getElementById("welcome-popup");
   popup.classList.add("hidden");
 }
+
+// ============================
+// Cerrar popup con click fuera o ESC
+// ============================
+document.addEventListener("click", (e) => {
+  const popup = document.getElementById("welcome-popup");
+  if (popup && !popup.contains(e.target) && !popup.classList.contains("hidden")) {
+    popup.classList.add("hidden");
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") cerrarPopup();
+});

@@ -516,3 +516,40 @@ width: auto;
   0%   { transform: translateX(0); }
   100% { transform: translateX(-100%); }
 }
+
+/* Videos responsivos */
+.video-responsive {
+  width: 100%;
+  max-width: 400px; /* se puede ajustar */
+  height: auto;
+  border-radius: 12px;
+  margin: 20px auto;
+  display: block;
+}
+
+/* Carrusel responsivo */
+@media (max-width: 768px) {
+  .carrusel img {
+    max-height: 200px; /* ajustar para móviles */
+  }
+
+  .video-responsive {
+    max-width: 100%; /* ocupar ancho del contenedor */
+  }
+
+  .servicio {
+    padding: 10px;
+  }
+}
+
+/* Galería Antes/Después responsive */
+@media (max-width: 768px) {
+  .comparacion {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .img-container {
+    width: 100%;
+  }
+}

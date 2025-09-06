@@ -10,10 +10,14 @@ body {
 }
 
 header {
-  text-align: center;
-  background-color: #f4e1f8;
+ text-align: center;
+  background: url("../fondo.png") repeat;
+  background-size: 200px auto;  /* ajusta el tamaño del patrón */
+  background-color: #f4e1f8;   /* color de base por si no cubre todo */
   padding: 30px 10px 10px;
 }
+
+
 
 h1 {
   font-family: 'Great Vibes', cursive;
@@ -46,6 +50,11 @@ h1 {
          drop-shadow(-1px -1px 0 #bb6bbb)
          drop-shadow(1px -1px 0 #bb6bbb)
          drop-shadow(-1px 1px 0 #bb6bbb);
+}
+.buttons a i {
+  margin-right: 8px;
+  font-size: 1.2em;
+  vertical-align: middle;
 }
 
 .selector-section {

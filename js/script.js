@@ -3,7 +3,7 @@
 // ============================
 const servicios = {
   "Manicure y Pedicure": {
-    descripcion: "Ofrecemos servicios de manicure y pedicure",
+    descripcion: "Servicios y Precios",
     imagenes: [
       "images/manicure/manicure1.png",
       "images/manicure/manicure2.png",
@@ -26,7 +26,7 @@ const servicios = {
     ]
   },
   "Cejas y Pestañas": {
-    descripcion: "Diseño de cejas y pestañas servicios",
+    descripcion: "Diseño de cejas y pestañas",
     imagenes: [
       "images/cejas-pestañas/pestanas1.png",
       "images/cejas-pestañas/pestanas2.png",
@@ -77,7 +77,7 @@ const servicios = {
 // ============================
 // Función para crear carrusel continuo
 // ============================
-function crearCarruselContinuo(imagenes, contenedorSelector, velocidad = 1) {
+function crearCarruselContinuo(imagenes, contenedorSelector, velocidad = 1, nombreServicio = "") {
   const contenedor = document.querySelector(contenedorSelector);
 
   // Crear carrusel
@@ -89,45 +89,20 @@ function crearCarruselContinuo(imagenes, contenedorSelector, velocidad = 1) {
 
   // Duplicar imágenes para efecto continuo
   const todasImagenes = [...imagenes, ...imagenes];
-  todasImagenes.forEach(src => {
+  todasImagenes.forEach((src, index) => {
     const img = document.createElement('img');
     img.src = src;
-    track.appendChild(img);
-  });
 
-  carrusel.appendChild(track);
-  contenedor.appendChild(carrusel);
+    // Extraer nombre del archivo sin extensión y reemplazar guiones/underscores por espacios
+    let nombreArchivo = src.split('/').pop().split('.')[0].replace(/[-_]/g, ' ');
 
-  let posicion = 0;
+    // Capitalizar palabras
+    nombreArchivo = nombreArchivo.replace(/\b\w/g, c => c.toUpperCase());
 
-  function animar() {
-    posicion -= velocidad;
-    if (Math.abs(posicion) >= track.scrollWidth / 2) {
-      posicion = 0;
-    }
-    track.style.transform = `translateX(${posicion}px)`;
-    requestAnimationFrame(animar);
-  }
+    // Agregar alt y title descriptivos
+    img.alt = `${nombreArchivo} - ${nombreServicio}`;
+    img.title = `${nombreArchivo} - Servicio de ${nombreServicio}`;
 
-  animar();
-}// ============================
-// Función para crear carrusel continuo
-// ============================
-function crearCarruselContinuo(imagenes, contenedorSelector, velocidad = 1) {
-  const contenedor = document.querySelector(contenedorSelector);
-
-  // Crear carrusel
-  const carrusel = document.createElement('div');
-  carrusel.className = 'carrusel';
-
-  const track = document.createElement('div');
-  track.className = 'carrusel-track';
-
-  // Duplicar imágenes para efecto continuo
-  const todasImagenes = [...imagenes, ...imagenes];
-  todasImagenes.forEach(src => {
-    const img = document.createElement('img');
-    img.src = src;
     track.appendChild(img);
   });
 
@@ -200,7 +175,7 @@ document.getElementById("categoria").addEventListener("change", function () {
     contenedor.appendChild(servicioDiv);
 
     // Crear carrusel con imágenes
-    crearCarruselContinuo(imagenes, '#contenido', 1);
+    crearCarruselContinuo(imagenes, '#contenido', 1, categoria);
 
     // Animación fade-in
     setTimeout(() => servicioDiv.classList.add('show'), 50);

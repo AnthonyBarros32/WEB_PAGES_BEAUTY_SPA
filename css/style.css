@@ -208,7 +208,7 @@ select {
 
 .slider-vertical {
   position: relative;
-  height: 400px; /* altura del bloque visible */
+  height: 600px; /* altura del bloque visible */
   overflow: hidden;
   width: 100%;
   margin: 20px 0;
@@ -267,14 +267,14 @@ select {
 
 @media (max-width: 600px) {
   .comparacion {
-    flex-direction: column;
+    flex-direction: row; /* forzar horizontal */
     gap: 15px;
-    align-items: center;      /* centra las imágenes horizontalmente */
-    justify-content: center;  /* centra las imágenes verticalmente si hay espacio */
+    align-items: center;
+    justify-content: center;
   }
   .img-container {
-    width: 90%;   /* un poco de margen lateral */
-    max-width: 300px; /* limita tamaño para que no se vea gigante */
+    width: 100%; /* mantiene ancho proporcional */
+    max-width: 300px;
   }
 }
 

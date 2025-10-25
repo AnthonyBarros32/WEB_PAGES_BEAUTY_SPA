@@ -9,8 +9,11 @@ const servicios = {
       "images/manicure/manicure2.png",
       "images/manicure/manicure3.png",
       "images/manicure/manicure4.png",
-      "images/manicure/manicure5.jpg",
-      "images/manicure/manicure6.jpg",
+      "images/manicure/manicure5.png",
+      "images/manicure/manicure6.png",
+      "images/manicure/manicure7.png",
+      "images/manicure/manicure8.png",
+      "images/manicure/manicure9.png",
       "images/pedicure/pedicure1.jpg",
       "images/pedicure/pedicure2.jpg"
     ],
@@ -69,7 +72,11 @@ const servicios = {
     video: "peinado_video1.mp4",
     precios: [
       { tipo: "Ondas", valor: "30.000" },
-      { tipo: "Recogido", valor: "50.000" }
+      { tipo: "Recogido", valor: "50.000" },
+      { tipo: "Laminado Capilar (Terapia Capilar) Desde", valor: "100.000" },
+      {tipo: "Trenzas Desde", valor: "15.000"},
+      {tipo: "Cepellados Desde", valor: "30.000"}
+
     ]
   }
 };
@@ -229,3 +236,42 @@ document.addEventListener("click", (e) => {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") cerrarPopup();
 });
+
+let sliderIndex = 0;
+let sliderInterval;
+
+function initSlider() {
+  const comparaciones = document.querySelectorAll('#antes-despues .slider-vertical .comparacion');
+
+  function mostrarSiguiente() {
+    comparaciones.forEach((comp, i) => {
+      comp.classList.remove('active');
+    });
+    comparaciones[sliderIndex].classList.add('active');
+    sliderIndex = (sliderIndex + 1) % comparaciones.length;
+  }
+
+  // Mostrar el primer bloque
+  mostrarSiguiente();
+
+  // Intervalo automático
+  sliderInterval = setInterval(mostrarSiguiente, 3000);
+}
+
+// Inicializar slider cuando se abra la pestaña
+function openTab(evt, tabName) {
+  const tabContents = document.querySelectorAll('.tab-content');
+  const tabs = document.querySelectorAll('.tab');
+
+  tabContents.forEach(tc => tc.classList.remove('active'));
+  tabs.forEach(t => t.classList.remove('active'));
+
+  document.getElementById(tabName).classList.add('active');
+  evt.currentTarget.classList.add('active');
+
+  if (tabName === 'antes-despues') {
+    clearInterval(sliderInterval);
+    sliderIndex = 0;
+    initSlider();
+  }
+}

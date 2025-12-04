@@ -20,12 +20,12 @@ const servicios = {
     video: "manicure_video1.mp4",
     precios: [
       { tipo: "Tradicional manos", valor: "23.000" },
-      { tipo: "Semipermanente manos", valor: "46.000" },
-      { tipo: "Press on", valor: "80.000" },
-      { tipo: "Acrílico Forrado", valor: "85.000" },
-      { tipo: "Acrílico Esculpidas Desde", valor: "100.000" },
+      { tipo: "Semipermanente manos", valor: "50.000" },
+      { tipo: "Press on", valor: "85.000" },
+      { tipo: "Acrílico Forrado", valor: "90.000" },
+      { tipo: "Acrílico Esculpidas Desde", valor: "110.000" },
       { tipo: "Tradicional pies", valor: "30.000" },
-      { tipo: "Semipermanente pies", valor: "43.000" }
+      { tipo: "Semipermanente pies", valor: "45.000" }
     ]
   },
   "Cejas y Pestañas": {

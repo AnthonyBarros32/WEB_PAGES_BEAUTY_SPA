@@ -19,7 +19,7 @@ const servicios = {
     ],
     video: "manicure_video1.mp4",
     precios: [
-      { tipo: "Tradicional manos", valor: "23.000" },
+      { tipo: "Tradicional manos", valor: "25.000" },
       { tipo: "Semipermanente manos", valor: "50.000" },
       { tipo: "Press on", valor: "85.000" },
       { tipo: "Acrílico Forrado", valor: "90.000" },

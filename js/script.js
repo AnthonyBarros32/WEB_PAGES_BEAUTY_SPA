@@ -133,16 +133,89 @@ function crearCarruselContinuo(imagenes, contenedorSelector, velocidad = 1, nomb
 // ============================
 // Mostrar contenido de servicios
 // ============================
-document.getElementById("categoria").addEventListener("change", function () {
-  const categoria = this.value;
-  const contenedor = document.getElementById("contenido");
+// document.getElementById("categoria").addEventListener("change", function () {
+//   const categoria = this.value;
+//   const contenedor = document.getElementById("contenido");
 
-  contenedor.innerHTML = ""; // limpiar contenido previo
+//   contenedor.innerHTML = ""; // limpiar contenido previo
+
+//   if (servicios[categoria]) {
+//     const { descripcion, imagenes, precios, video } = servicios[categoria];
+
+//     // Crear bloque de servicio
+//     const servicioDiv = document.createElement('div');
+//     servicioDiv.className = 'servicio';
+
+//     const titulo = document.createElement('h3');
+//     titulo.className = 'titulo-servicio';
+//     titulo.textContent = categoria.replace("-", " ");
+//     servicioDiv.appendChild(titulo);
+
+//     const desc = document.createElement('p');
+//     desc.className = 'descripcion-servicio';
+//     desc.textContent = descripcion;
+//     servicioDiv.appendChild(desc);
+
+//     // Video si existe
+//     if (video) {
+//       const videoDiv = document.createElement('div');
+//       videoDiv.className = 'video-servicio';
+//       videoDiv.innerHTML = `
+//         <video controls>
+//           <source src="${video}" type="video/mp4">
+//           Tu navegador no soporta la reproducción de video.
+//         </video>`;
+//       servicioDiv.appendChild(videoDiv);
+//     }
+
+//     // Lista de precios
+//     const ul = document.createElement('ul');
+//     ul.className = 'lista-precios';
+//     precios.forEach(p => {
+//       const li = document.createElement('li');
+//       li.className = 'precio-item';
+//       li.innerHTML = `<span class="nombre">${p.tipo}:</span> <span class="valor"><sup>$</sup>${p.valor}</span>`;
+//       ul.appendChild(li);
+//     });
+//     servicioDiv.appendChild(ul);
+
+//     contenedor.appendChild(servicioDiv);
+
+//     // Crear carrusel con imágenes
+//     crearCarruselContinuo(imagenes, '#contenido', 1, categoria);
+
+//     // Animación fade-in
+//     setTimeout(() => servicioDiv.classList.add('show'), 50);
+//   }
+// });
+
+// ============================
+// Manejar chips de categoría
+// ============================
+const chips = document.querySelectorAll(".categoria-chip");
+
+chips.forEach(chip => {
+  chip.addEventListener("click", () => {
+    // activar chip seleccionado
+    chips.forEach(c => c.classList.remove("active"));
+    chip.classList.add("active");
+
+    // cargar contenido de esa categoría
+    mostrarCategoria(chip.dataset.cat);
+  });
+});
+
+// Cargar la primera categoría al inicio
+mostrarCategoria("Manicure y Pedicure");
+
+function mostrarCategoria(categoria) {
+  const contenedor = document.getElementById("lista-servicios");
+
+  contenedor.innerHTML = ""; 
 
   if (servicios[categoria]) {
     const { descripcion, imagenes, precios, video } = servicios[categoria];
 
-    // Crear bloque de servicio
     const servicioDiv = document.createElement('div');
     servicioDiv.className = 'servicio';
 
@@ -156,7 +229,6 @@ document.getElementById("categoria").addEventListener("change", function () {
     desc.textContent = descripcion;
     servicioDiv.appendChild(desc);
 
-    // Video si existe
     if (video) {
       const videoDiv = document.createElement('div');
       videoDiv.className = 'video-servicio';
@@ -168,26 +240,28 @@ document.getElementById("categoria").addEventListener("change", function () {
       servicioDiv.appendChild(videoDiv);
     }
 
-    // Lista de precios
+    // precios
     const ul = document.createElement('ul');
     ul.className = 'lista-precios';
     precios.forEach(p => {
       const li = document.createElement('li');
       li.className = 'precio-item';
-      li.innerHTML = `<span class="nombre">${p.tipo}:</span> <span class="valor">$${p.valor}</span>`;
+      li.innerHTML = `
+        <span class="nombre">${p.tipo}:</span> 
+        <span class="valor"><sup>$</sup>${p.valor}</span>`;
       ul.appendChild(li);
     });
     servicioDiv.appendChild(ul);
 
     contenedor.appendChild(servicioDiv);
 
-    // Crear carrusel con imágenes
-    crearCarruselContinuo(imagenes, '#contenido', 1, categoria);
+    // carrusel
+    crearCarruselContinuo(imagenes, '#lista-servicios', 1, categoria);
 
-    // Animación fade-in
     setTimeout(() => servicioDiv.classList.add('show'), 50);
   }
-});
+}
+
 
 // ============================
 // Pestañas

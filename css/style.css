@@ -572,3 +572,105 @@ select {
 .btn-share:hover i {
   transform: rotate(-8deg) scale(1.2);
 }
+
+/* ======== NUEVO ESTILO DE PRECIOS ======== */
+.lista-precios {
+  margin-top: 15px;
+  padding: 0;
+}
+
+.precio-item {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #f6e1ff, #e4b8ff);
+  padding: 8px 12px;               /* antes 12px 20px aprox */
+  margin-bottom: 8px;              /* antes era más grande */
+  border-radius: 12px;             /* más pequeño */
+  font-size: 14px;   
+}
+
+.precio-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(150, 50, 180, 0.25);
+}
+
+.precio-item .nombre {
+  font-weight: 600;
+}
+
+.precio-item .valor {
+  background: #a200d6;
+  padding: 5px 10px;               /* más pequeño */
+  border-radius: 20px;             /* achica el chip */
+  color: #fff;
+  font-size: 13px;                 /* más pequeño */
+  display: inline-block;
+  min-width: 65px;                 /* evita que se deforme */
+  text-align: center;
+}
+
+.precio-item:hover .valor {
+  background: #8e3fb5;
+  transform: scale(1.1);
+}
+
+@media (max-width: 480px) {
+  .precio-item {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  .precio-item .valor {
+    padding: 4px 8px;
+    font-size: 12px;
+    min-width: 58px;
+  }
+}
+
+.categorias {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.categoria-chip {
+  padding: 10px 12px;
+  background: #f4e7ff;
+  border: 2px solid #c08bf0;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #5b2a86;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.categoria-chip.active {
+  background: #c08bf0;
+  color: white;
+  box-shadow: 0 3px 8px rgba(192, 139, 240, 0.4);
+  transform: translateY(-2px);
+}
+
+.categoria-chip:hover {
+  background: #d8b3ff;
+}
+
+.bienvenida-servicios {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+}
+
+.bienvenida-servicios h2 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #d63384;
+}
+
+.bienvenida-servicios p {
+  font-size: 15px;
+  color: #555;
+  margin-top: 5px;
+}

@@ -68,7 +68,7 @@
 <link rel="shortcut icon" href="logo_spa_salon.png" type="image/x-icon">
 
 </head>
-<body>
+<sec>
 <div id="welcome-popup">
     <div class="popup-stars-overlay">
     <!-- Estrellas -->
@@ -110,7 +110,7 @@
   </div>
 
   <!-- Contenido de pestañas -->
-  <section id="selector" class="tab-content active">
+  <!-- <section id="selector" class="tab-content active">
     <div class="selector-section">
       <label for="categoria">Selecciona una categoría y observa nuestros trabajos:</label>
       <br><br>
@@ -123,7 +123,27 @@
       </select>
     </div>
     <div id="contenido"></div>
-  </section>
+  </section> -->
+<section id="selector" class="tab-content active">
+
+  <!-- Bloque de bienvenida -->
+  <div class="bienvenida-servicios">
+    <h2>✨ Nuestros Servicios ✨</h2>
+    <p>Selecciona una categoría para ver fotos reales, precios y trabajos.</p>
+  </div>
+
+  <!-- Chips de categorías -->
+  <div class="categorias">
+    <div class="categoria-chip" data-cat="Manicure y Pedicure">Manicure y Pedicure</div>
+    <div class="categoria-chip" data-cat="Cejas y Pestañas">Cejas y Pestañas</div>
+    <div class="categoria-chip" data-cat="Maquillaje">Maquillaje</div>
+    <div class="categoria-chip" data-cat="Peinados">Peinados</div>
+  </div>
+
+  <!-- Contenido dinámico -->
+  <div id="lista-servicios"></div>
+
+</section>
 
 <section id="antes-despues" class="tab-content">
   <div class="titulo-transformacion">

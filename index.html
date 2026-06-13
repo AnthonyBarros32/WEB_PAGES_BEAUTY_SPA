@@ -38,6 +38,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="image_src" href="https://www.medellinglamnails.com.co/Medellin_Glam_Nails_Salon.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <!-- Datos estructurados -->
   <script type="application/ld+json">
   {
@@ -68,11 +73,40 @@
 <link rel="shortcut icon" href="logo_spa_salon.png" type="image/x-icon">
 
 </head>
-<sec>
+<body>
+
+<nav class="navbar">
+
+    <div class="nav-logo">
+        <img src="logo_spa_salon.png">
+    </div>
+
+    <!-- LINKS -->
+    <div class="nav-links" id="navLinks">
+        <a href="#selector">Servicios</a>
+        <a href="#antes-despues">Trabajos</a>
+        <a href="#contacto">Contacto</a>
+    </div>
+
+    <!-- BOTÓN SOLO DESKTOP -->
+    <button class="nav-btn"
+    onclick="enviarWhatsApp('Hola quiero agendar una cita')">
+    Reservar
+    </button>
+
+    <!-- HAMBURGUESA -->
+    <div class="hamburger" id="hamburger">
+        ☰
+    </div>
+
+</nav>
+
+
+<!--
 <div id="welcome-popup">
     <div class="popup-stars-overlay">
-    <!-- Estrellas -->
-    <div class="star" style="top: 10%; left: 15%; animation-delay: 0s; background: #ffffff;"></div>
+    Estrellas -->
+    <!-- <div class="star" style="top: 10%; left: 15%; animation-delay: 0s; background: #ffffff;"></div>
   <div class="star" style="top: 30%; left: 50%; animation-delay: 1s; background: #ffd700;"></div>
   <div class="star" style="top: 60%; left: 70%; animation-delay: 1.5s; background: #ff69b4;"></div>
   <div class="star" style="top: 80%; left: 25%; animation-delay: 0.5s; background: #00ffff;"></div>
@@ -89,25 +123,44 @@
       <p style="font-style: italic; margin-top: 10px;">"La belleza empieza cuando decides cuidarte 💖"</p>
       <p>¡Haz clic para descubrir lo que tenemos para ti!</p>
       <button onclick="cerrarPopup()">Entrar</button>
-    </div>
-  </div>
-  <header>
+    </div> -->
+  <!-- </div> -->
+
+  <!-- <header>
     <h1>
       <img src="logo_spa_salon.png" alt="" role="presentation" aria-hidden="true" width="50" class="logo-brillante" />
       <img src="but1.png" class="butterfly" alt="mariposa" />
       <img src="letra_logo.png" class="logo-letra"/>
       <img src="but1.png" class="butterfly" alt="mariposa" />
       <img src="logo_spa_salon.png" alt="" role="presentation" aria-hidden="true" width="50" class="logo-brillante" />
-    </h1>
-    <p class="frase">¡¡¡SOMOS ARTISTAS!!! TÚ ERES NUESTRO LIENZO</p>
-  </header>
+
+  </header> -->
+
+<header class="hero">
+
+  <div class="hero-content">
+
+    <button class="btn-reserva-hero"
+      onclick="enviarWhatsApp('Hola quiero reservar una cita en Glam Nails 💜')">
+
+      ✨ Reservar cita
+
+    </button>
+
+  </div>
+
+</header>
+
+</a>
+
+</header>
 
   <!-- Pestañas -->
-  <div class="tabs">
+  <!-- <div class="tabs">
     <button class="tab active" onclick="openTab(event, 'selector')">Servicios</button>
     <button class="tab" onclick="openTab(event, 'antes-despues')">Antes y Después</button>
     <button class="tab" onclick="openTab(event, 'contacto')">Contacto</button>
-  </div>
+  </div> -->
 
   <!-- Contenido de pestañas -->
   <!-- <section id="selector" class="tab-content active">
@@ -124,141 +177,524 @@
     </div>
     <div id="contenido"></div>
   </section> -->
-<section id="selector" class="tab-content active">
 
-  <!-- Bloque de bienvenida -->
+  <!-- Chips de categorías -->
+<!-- <section id="selector" class="tab-content active"> -->
+  <section id="selector"></section>
+
   <div class="bienvenida-servicios">
     <h2>✨ Nuestros Servicios ✨</h2>
     <p>Selecciona una categoría para ver fotos reales, precios y trabajos.</p>
   </div>
 
-  <!-- Chips de categorías -->
-  <div class="categorias">
-    <div class="categoria-chip" data-cat="Manicure y Pedicure">Manicure y Pedicure</div>
-    <div class="categoria-chip" data-cat="Cejas y Pestañas">Cejas y Pestañas</div>
-    <div class="categoria-chip" data-cat="Maquillaje">Maquillaje</div>
-    <div class="categoria-chip" data-cat="Peinados">Peinados</div>
-  </div>
+  <!-- 👇 CONTENEDOR GRID -->
+  <div class="servicios-grid">
 
-  <!-- Contenido dinámico -->
-  <div id="lista-servicios"></div>
+    <div class="servicio-card" onclick="mostrarCategoria('Manicure y Pedicure', this)">
+      
+      <img src="images/manicure_pedicure.png"
+           alt="Manicure y Pedicure"
+           class="icono-servicio">
+
+      <h3>Manicure y Pedicure</h3>
+      <p>Uñas perfectas con acabados profesionales.</p>
+      <div class="contenido-servicio"></div>
+    </div>
+
+    <div class="servicio-card" onclick="mostrarCategoria('Cejas y Pestañas', this)">
+      
+      <img src="images/cejas_pestanas.png"
+       alt="Cejas y Pestañas"
+      class="icono-servicio">
+
+      <h3>Cejas y Pestañas</h3>
+      <p>Realza tu mirada con técnicas modernas.</p>
+      <div class="contenido-servicio"></div>
+    </div>
+
+    <div class="servicio-card" onclick="mostrarCategoria('Maquillaje', this)">
+
+      <img src="images/maquillaje.png"
+      alt="Maquillaje"
+        class="icono-servicio">
+
+      <h3>Maquillaje</h3>
+      <p>Luce espectacular para cualquier ocasión.</p>
+      <div class="contenido-servicio"></div>
+    </div>
+
+    <div class="servicio-card" onclick="mostrarCategoria('Peinados', this)">
+      
+       <img src="images/peinado.png"
+        alt="Peinados"
+        class="icono-servicio">
+
+      <h3>Peinados</h3>
+      <p>Estilos elegantes que roban miradas.</p>
+      <div class="contenido-servicio"></div>
+    </div>
+
+  </div>
 
 </section>
 
+<section class="reviews-pro">
+
+  <h2 class="titulo-reviews">💜Lo que dicen nuestras clientas💜</h2>
+
+  <div class="reviews-grid">
+
+    <div class="review-card">
+      <img src="reseñas_1.png" alt="cliente">
+      <div class="review-content">
+        <div class="stars">★★★★★</div>
+        <span>— Maria Q.</span>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <img src="reseñas_2.png" alt="cliente">
+      <div class="review-content">
+        <div class="stars">★★★★★</div>
+        <span>— Maria C.</span>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <img src="reseñas5.png" alt="cliente">
+      <div class="review-content">
+        <div class="stars">★★★★★</div>
+        <span>— Beatriz G.</span>
+      </div>
+    </div>
+
+
+    <div class="review-card">
+      <img src="reseñas6.png" alt="cliente">
+      <div class="review-content">
+        <div class="stars">★★★★★</div>
+        <span>— Beatriz G.</span>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <img src="reseñas7.png" alt="cliente">
+      <div class="review-content">
+        <div class="stars">★★★★★</div>
+        <span>— Adriana S.</span>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="porque">
+  <h2>¿Por qué elegir Glam Nails Salon?</h2>
+
+  <div class="porque-grid">
+
+    <div class="porque-card">
+      <span>✨</span>
+      <h3>Productos premium</h3>
+      <p>Trabajamos solo con marcas profesionales.</p>
+    </div>
+
+    <div class="porque-card">
+      <span>👩‍🎨</span>
+      <h3>Artistas expertas</h3>
+      <p>Cada diseño es personalizado.</p>
+    </div>
+
+    <div class="porque-card">
+      <span>💜</span>
+      <h3>Ambiente relajante</h3>
+      <p>Tu momento para desconectarte.</p>
+    </div>
+
+    <div class="porque-card">
+      <span>🧼</span>
+      <h3>Higiene garantizada</h3>
+      <p>Herramientas esterilizadas y seguras.</p>
+    </div>
+
+    <div class="porque-card">
+      <span>💯</span>
+      <h3>Resultados que enamoran</h3>
+      <p>Nos enfocamos en que ames tu resultado.</p>
+    </div>
+
+    <div class="porque-card">
+      <span>💬</span>
+      <h3>Atención personalizada</h3>
+      <p>Te ayudamos a elegir el estilo ideal.</p>
+    </div>
+
+  </div>
+</section>
+
+</section>
 <section id="antes-despues" class="tab-content">
-  <div class="titulo-transformacion">
-    <h2>Antes y Después</h2>
-    <p>Mira cómo transformamos a nuestras clientas con amor y detalle</p>
+
+<div class="titulo-transformacion">
+
+  <span class="mini-tag">
+    ✨ Transformaciones reales
+  </span>
+
+  <h2>Antes & Después</h2>
+
+  <p>
+    Mira cómo transformamos a nuestras clientas
+    con amor, detalle y acabados profesionales.
+  </p>
+
+</div>
+
+
+  <!-- =========================
+       GRID DE TRABAJOS
+  ========================== -->
+
+  <div class="trabajos-grid">
+
+    <!-- CARD 1 -->
+    <div class="trabajo-card">
+
+      <div class="imagenes">
+
+        <div class="img-box">
+
+          <span>ANTES</span>
+
+          <img src="images/antes-despues/antes_peinado.png"
+               alt="Antes peinado">
+
+        </div>
+
+        <div class="img-box">
+
+          <span>DESPUÉS</span>
+
+          <img src="images/antes-despues/despues_peinado.png"
+               alt="Después peinado">
+
+        </div>
+
+      </div>
+
+      <div class="info-trabajo">
+
+        <h3>👑 Peinado Profesional</h3>
+
+        <p>
+          Transformación elegante para ocasiones especiales.
+        </p>
+
+        <button class="btn-reserva"
+          onclick="enviarWhatsApp('Hola 💜 quiero un peinado como este')">
+
+          💜 Quiero este estilo
+
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="trabajo-card">
+
+      <div class="imagenes">
+
+        <div class="img-box">
+
+          <span>ANTES</span>
+
+          <img src="images/antes-despues/pestañas_antes.png"
+               alt="Antes pestañas">
+
+        </div>
+
+        <div class="img-box">
+
+          <span>DESPUÉS</span>
+
+          <img src="images/antes-despues/pestañas_despues.png"
+               alt="Después pestañas">
+
+        </div>
+
+      </div>
+
+      <div class="info-trabajo">
+
+        <h3>👁️ Pestañas Perfectas</h3>
+
+        <p>
+          Mirada más definida y elegante.
+        </p>
+
+        <button class="btn-reserva"
+          onclick="enviarWhatsApp('Hola 💜 quiero pestañas como estas')">
+
+          💜 Quiero este resultado
+
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="trabajo-card">
+
+      <div class="imagenes">
+
+        <div class="img-box">
+
+          <span>ANTES</span>
+
+          <img src="images/antes-despues/antes1.jpg"
+               alt="Antes uñas">
+
+        </div>
+
+        <div class="img-box">
+
+          <span>DESPUÉS</span>
+
+          <img src="images/antes-despues/despues1.jpg"
+               alt="Después uñas">
+
+        </div>
+
+      </div>
+
+      <div class="info-trabajo">
+
+        <h3>💅 Diseño Glam Nails</h3>
+
+        <p>
+          Uñas elegantes con acabado profesional y moderno.
+        </p>
+
+        <button class="btn-reserva"
+          onclick="enviarWhatsApp('Hola 💜 quiero un diseño como este')">
+
+          💜 Quiero este diseño
+
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="trabajo-card">
+
+      <div class="imagenes">
+
+        <div class="img-box">
+
+          <span>ANTES</span>
+
+          <img src="images/antes-despues/pestañas_antes1.png"
+               alt="Antes lifting">
+
+        </div>
+
+        <div class="img-box">
+
+          <span>DESPUÉS</span>
+
+          <img src="images/antes-despues/pestañas_despues1.png"
+               alt="Después lifting">
+
+        </div>
+
+      </div>
+
+      <div class="info-trabajo">
+
+        <h3>✨ Lifting y Pestañas</h3>
+
+        <p>
+          Resultado natural que resalta tu mirada.
+        </p>
+
+        <button class="btn-reserva"
+          onclick="enviarWhatsApp('Hola 💜 quiero este look')">
+
+          💜 Quiero este look
+
+        </button>
+
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="slider-vertical">
-    <div class="comparacion">
-      <div class="img-container">
-        <span class="etiqueta">Antes</span>
-        <img src="images/antes-despues/antes_manos.png" alt="Manos antes del manicure">
-      </div>
-      <div class="img-container">
-        <span class="etiqueta">Después</span>
-        <img src="images/antes-despues/despues_manos.png" alt="Manos después del manicure">
-      </div>
-    </div>
-
-    <div class="comparacion">
-      <div class="img-container">
-        <span class="etiqueta">Antes</span>
-        <img src="images/antes-despues/antes_peinado.png" alt="Peinado antes">
-      </div>
-      <div class="img-container">
-        <span class="etiqueta">Después</span>
-        <img src="images/antes-despues/despues_peinado.png" alt="Peinado después">
-      </div>
-    </div>
-
-    <div class="comparacion">
-      <div class="img-container">
-        <span class="etiqueta">Antes</span>
-        <img src="images/antes-despues/pestañas_antes.png" alt="Pestañas antes">
-      </div>
-      <div class="img-container">
-        <span class="etiqueta">Después</span>
-        <img src="images/antes-despues/pestañas_despues.png" alt="Pestañas después">
-      </div>
-    </div>
-
-    <div class="comparacion">
-      <div class="img-container">
-        <span class="etiqueta">Antes</span>
-        <img src="images/antes-despues/antes1.jpg" alt="Manos antes">
-      </div>
-      <div class="img-container">
-        <span class="etiqueta">Después</span>
-        <img src="images/antes-despues/despues1.jpg" alt="Manos Despues">
-      </div>
-    </div>
-
-    <div class="comparacion">
-      <div class="img-container">
-        <span class="etiqueta">Antes</span>
-        <img src="images/antes-despues/pestañas_antes1.png" alt="Pestañas antes">
-      </div>
-      <div class="img-container">
-        <span class="etiqueta">Después</span>
-        <img src="images/antes-despues/pestañas_despues1.png" alt="Pestañas después">
-      </div>
-    </div>
-
-  </div>
 </section>
 
+<footer class="footer-premium" id="contacto">
+
+  <div class="footer-container">
+
+    <!-- MARCA -->
+    <div class="footer-brand">
+
+      <img src="logo_spa_remastered.png"
+           alt="Glam Nails">
+
+      <h3>Glam Nails Salon</h3>
+
+      <p>
+        ✨ Somos artistas <br>
+        Tú eres nuestro lienzo
+      </p>
 
 
-  <section id="contacto" class="tab-content">
-    <h2>Contacto</h2>
-    <p><strong>Horario:</strong> Lunes a sábado de 9:00 am a 7:00 pm</p>
-    <p><strong>Ubicación:</strong> Pasaje Comercial El Boulevard de Junín, Medellín - Piso 2, Local 209</p>
-    <div class="buttons">
-  <a href="https://wa.me/573022061040" target="_blank" class="whatsapp-btn">
-    <i class="fab fa-whatsapp"></i> WhatsApp
-  </a>
-  <a href="https://www.instagram.com/glamnails_salon_/" target="_blank" class="instagram-btn">
-    <i class="fab fa-instagram"></i> Instagram
-  </a>
-</div>
+    </div>
 
-<!-- Google Maps -->
-  <!-- Mapa de Google Maps -->
-  <div class="map-container" style="margin-top:20px; height:400px;">
-     <h3 class="share-title">ENCUENTRANOS:</h3>
-    <iframe 
-      title="Ubicación Glam Nails Salon"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.900094241596!2d-75.56821868475934!3d6.250464696285955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428f901dc2b7b%3A0xc1bfa2d2ca8f8e!2sPasaje%20Comercial%20Boulevard%20De%20Jun%C3%ADn!5e0!3m2!1ses-419!2sco!4v1694164222222!5m2!1ses-419!2sco" 
-      width="100%" 
-      height="100%" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+    <!-- UBICACIÓN -->
+    <div class="footer-box">
+
+      <h4>📍 Ubicación</h4>
+
+      <p>
+        Glam Nails Salon Medellín<br>
+        Cra. 46 #52-25, Edificio La Araucaria<br>
+        La Candelaria, Medellín
+      </p>
+
+      <span>
+        Piso 5 - Oficina 504
+      </span>
+
+      <div class="mini-map">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.052348590682!2d-75.56628270595857!3d6.2499330574159915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4429005da5e0b7%3A0xfd90a0d84fb46a1b!2sEdificio%20La%20Araucaria!5e0!3m2!1ses-419!2sco!4v1781307789995!5m2!1ses-419!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+      </div>
+
+    </div>
+
+    <!-- HORARIOS -->
+    <div class="footer-box">
+
+      <h4>🕒 Horarios</h4>
+
+      <p>Lunes a sábado</p>
+      <span>8:00 am - 10:00 pm</span>
+
+
+
+    </div>
+
+    <!-- CONTACTO -->
+    <div class="footer-box">
+
+      <h4>💜 Contáctanos</h4>
+
+      <a href="https://api.whatsapp.com/send?phone=573022061040"
+         target="_blank">
+
+        <i class="fab fa-whatsapp"></i>
+
+        WhatsApp
+
+      </a>
+
+      <a href="https://www.instagram.com/glamnails_salon_/"
+         target="_blank">
+
+        <i class="fab fa-instagram"></i>
+
+        Instagram
+
+      </a>
+
+
+    </div>
+
   </div>
 
-<!-- Sección para compartir -->
-<div class="share-section">
-  <h3 class="share-title">✨ Comparte nuestra página ✨</h3>
-  <p class="share-subtitle">Ayúdanos a crecer y llegar a más personas 💜</p>
+  <!-- MÉTODOS DE PAGO -->
+  <div class="footer-payments">
 
-  <div class="share-buttons">
-    <a href="https://api.whatsapp.com/send?text=https://www.medellinglamnails.com.co/" 
-   target="_blank" class="btn-share whatsapp">
-  <i class="fa-brands fa-whatsapp"></i> Compartir en WhatsApp
-    </a>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.medellinglamnails.com.co/" 
-       target="_blank" class="btn-share facebook">
-      <i class="fa-brands fa-facebook-f"></i> Compartir en Facebook
-    </a>
+    <div class="payment-item">
+      💳 Tarjetas
+    </div>
+
+    <div class="payment-item">
+      📱 Nequi
+    </div>
+
+    <div class="payment-item">
+      🏦 Bancolombia
+    </div>
+
+    <div class="payment-item">
+      💵 Efectivo
+    </div>
+
   </div>
-</div>
-  </section>
 
-  <script src="js/script.js"></script>
+  <!-- COPYRIGHT -->
+  <div class="footer-bottom">
+
+    © 2026 Glam Nails Salon.
+    Todos los derechos reservados.
+
+  </div>
+
+</footer>
+
+<script src="js/script.js"></script>
+
+<script>
+
+const numeroWhatsApp = "573022061040";
+
+function enviarWhatsApp(mensaje){
+
+    const url =
+`https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensaje)}`;
+
+    window.open(url, "_blank");
+
+}
+
+/* MENU MOBILE */
+
+const hamburger =
+document.getElementById("hamburger");
+
+const navLinks =
+document.getElementById("navLinks");
+
+/* ABRIR / CERRAR */
+hamburger.addEventListener("click", () => {
+
+  navLinks.classList.toggle("active");
+
+});
+
+/* CERRAR AL TOCAR LINK */
+document.querySelectorAll(".nav-links a")
+.forEach(link => {
+
+  link.addEventListener("click", () => {
+
+    navLinks.classList.remove("active");
+
+  });
+
+});
+
+</script>
+
 </body>
 </html>

@@ -28,7 +28,7 @@
   <meta property="og:title" content="Glam Nails Salon - Spa de Belleza en Medellín">
   <meta property="og:description" content="Transforma tu estilo en Glam Nails Medellín 💖. Manicure, pedicure, cejas, pestañas y maquillaje profesional. Agenda tu cita y luce espectacular.">
   <meta property="og:site_name" content="Glam Nails Salon">
-  <meta property="og:image" content="https://www.medellinglamnails.com.co/Medellin_Glam_Nails_Salon.jpg">
+  <meta property="og:image" content="https://www.medellinglamnails.com.co/Nuevo_Local.jpeg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -40,14 +40,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Glam Nails Salon - Spa de Belleza en Medellín">
   <meta name="twitter:description" content="Manicure, pedicure, cejas, pestañas, maquillaje y peinados en Medellín. Ven a Glam Nails Salon y luce espectacular.">
-  <meta name="twitter:image" content="https://www.medellinglamnails.com.co/Medellin_Glam_Nails_Salon.jpg">
+  <meta name="twitter:image" content="https://www.medellinglamnails.com.co/Nuevo_Local.jpeg">
 
   <!-- Estilos -->
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="image_src" href="https://www.medellinglamnails.com.co/Medellin_Glam_Nails_Salon.jpg">
+  <link rel="image_src" href="https://www.medellinglamnails.com.co/Nuevo_Local.jpeg">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,7 +59,7 @@
     "@context": "https://schema.org",
     "@type": "BeautySalon",
     "name": "Glam Nails Salon",
-    "image": "https://www.medellinglamnails.com.co/Medellin_Glam_Nails_Salon.jpg",
+    "image": "https://www.medellinglamnails.com.co/Nuevo_Local.jpeg",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Pasaje Comercial El Boulevard de Junín, Piso 2, Local 209",
@@ -677,13 +677,19 @@
 
 const numeroWhatsApp = "573022061040";
 
-function enviarWhatsApp(mensaje){
+function enviarWhatsApp(mensaje, origen = "General") {
+
+    if (typeof gtag === 'function') {
+        gtag('event', 'click_whatsapp', {
+            event_category: 'Contacto',
+            event_label: origen
+        });
+    }
 
     const url =
-`https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensaje)}`;
+    `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensaje)}`;
 
     window.open(url, "_blank");
-
 }
 
 /* MENU MOBILE */

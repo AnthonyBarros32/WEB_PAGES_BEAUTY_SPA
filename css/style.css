@@ -597,7 +597,11 @@ RESEÑAS PRO
 ============================ */
 .reviews-pro {
   padding: 80px 20px;
-  background: linear-gradient(135deg, #fdf3ff, #f4e1ff);
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #e5e5e5
+  );
   text-align: center;
 }
 
@@ -1045,67 +1049,62 @@ RESEÑAS PRO
 /* ============================
    MÉTODOS DE PAGO
 ============================ */
-
 .metodos-pago{
-  margin-top: 35px;
-  background: white;
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-  text-align: center;
+    margin-top: 40px;
+    text-align: center;
 }
 
-.metodos-pago h3{
-  color: #a259c5;
-  margin-bottom: 10px;
+.metodos-pago-header span{
+    font-size: 35px;
 }
 
-.pago-sub{
-  color: #666;
-  margin-bottom: 20px;
+.metodos-pago-header h3{
+    margin: 10px 0 5px;
+    font-size: 24px;
+    color: #ffffff;
+    font-family: 'Playfair Display', serif;
 }
 
-.pagos-grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
-  gap: 15px;
+.metodos-pago-header p{
+    color: #ffffff;
+    margin-bottom: 25px;
 }
 
-.pago-card{
-  background: linear-gradient(135deg,#f7e8ff,#f3dcff);
-  border-radius: 18px;
-  padding: 20px 10px;
-  transition: 0.3s;
+.payment-methods{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-.pago-card span{
-  font-size: 30px;
-  display: block;
-  margin-bottom: 10px;
+.payment-item{
+    background: linear-gradient(
+        145deg,
+        #f7f7f7,
+        #dcdcdc
+    );
+
+    color: #555;
+
+    padding: 14px 24px;
+
+    border-radius: 50px;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.08),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+
+    transition: all .3s ease;
 }
 
-.pago-card p{
-  margin: 0;
-  font-weight: 600;
-  color: #5c4764;
-  font-size: 14px;
-}
+.payment-item:hover{
+    transform: translateY(-4px);
 
-.pago-card:hover{
-  transform: translateY(-5px);
-}
-
-.icono-servicio{
-    width: 95px;
-    height: 95px;
-    object-fit: contain;
-    margin-bottom: 15px;
-    opacity: 0.95;
-    transition: 0.3s ease;
-}
-
-.servicio-card:hover .icono-servicio{
-    transform: scale(1.08);
+    box-shadow:
+        0 15px 30px rgba(0,0,0,0.12),
+        inset 0 1px 0 rgba(255,255,255,1);
 }
 
 /* ============================
